@@ -1,4 +1,4 @@
-package empresa;
+package empresa2;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,123 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-class Cliente {
-    private String cpf;
-    private String nome;
-    private String cep;
-    private String telefone;
-    private List<Processo> processos;
-
-    public Cliente(String cpf, String nome, String cep, String telefone) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.cep = cep;
-        this.telefone = telefone;
-        this.processos = new ArrayList<>();
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public List<Processo> getProcessos() {
-        return processos;
-    }
-
-    public void visualizarProcessos() {
-        for (Processo processo : processos) {
-            processo.mostrarDetalhes();
-        }
-    }
-
-    public void adicionarProcesso(Processo processo) {
-        processos.add(processo);
-    }
-}
-
-class Advogado {
-    private String nome;
-    private String numeroRegistro;
-    private String cep;
-    private List<Processo> processos;
-
-    public Advogado(String nome, String numeroRegistro, String cep) {
-        this.nome = nome;
-        this.numeroRegistro = numeroRegistro;
-        this.cep = cep;
-        this.processos = new ArrayList<>();
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNumeroRegistro() {
-        return numeroRegistro;
-    }
-
-    public void setNumeroRegistro(String numeroRegistro) {
-        this.numeroRegistro = numeroRegistro;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public List<Processo> getProcessos() {
-        return processos;
-    }
-
-    public void adicionarProcesso(Processo processo) {
-        processos.add(processo);
-    }
-
-    public void editarProcesso(Processo processo, String novoStatus) {
-        processo.setStatus(novoStatus);
-    }
-}
-
-class Processo {
-    private Date data;
-    private String tipo;
-    private String status;
-    private String descricao;
-    private Date vencimento;
-
-    public Processo(Date data, String tipo, String status, String descricao, Date vencimento) {
-        this.data = data;
-        this.tipo = tipo;
-        this.status = status;
-        this.descricao = descricao;
-        this.vencimento = vencimento;
-    }
-
-    public void mostrarDetalhes() {
-        System.out.println("Data: " + data);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Status: " + status);
-        System.out.println("Descrição: " + descricao);
-        System.out.println("Vencimento: " + vencimento);
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-}
-
-class SistemaAdvocacia {
+public class SistemaAdvocacia {
     private List<Cliente> clientes;
     private List<Advogado> advogados;
     private Object sessao;
@@ -134,7 +18,7 @@ class SistemaAdvocacia {
     }
 
     public void cadastrarCliente(String cpf, String nome, String cep, String telefone) {
-        Cliente cliente = new Cliente(cpf, nome, cep, telefone);
+        Cliente cliente = new Cliente();
         clientes.add(cliente);
         System.out.println("Cliente " + nome + " cadastrado com sucesso!");
     }
@@ -169,7 +53,7 @@ class SistemaAdvocacia {
 
     public void logout() {
         sessao = null;
-        System.out.println("saida realizado com sucesso!");
+        System.out.println("Saída realizada com sucesso!");
     }
 
     public void adicionarProcesso(String cpfCliente, String numeroRegistroAdvogado, Date data, String tipo, String status, String descricao, Date vencimento) {
@@ -277,24 +161,27 @@ class SistemaAdvocacia {
                     String vencimentoStr = scanner.nextLine();
                     Date vencimento = null;
                     try {
-                        vencimento = sdf.parse(vencimentoStr);
+                    	vencimento = sdf.parse(vencimentoStr);
                     } catch (ParseException e) {
-                        System.out.println("Formato de data inválido.");
-                        break;
+                    	System.out.println("Formato de data invalido.");
+                    	break;
                     }
                     sistema.adicionarProcesso(cpfCli, numRegAdv, data, tipo, status, descricao, vencimento);
                     break;
                 case 6:
-                    sistema.logout();
-                    break;
+                	sistema.logout();
+                	break;
                 case 7:
-                    sair = true;
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
+                	sair = true;
+                	break;
+                	default:
+                		System.out.println("Opção invalida!");
+                		
+                		
             }
-        }
-
-        scanner.close();
+        }          
+                   
+         scanner.close();
     }
-}
+}          
+                    
