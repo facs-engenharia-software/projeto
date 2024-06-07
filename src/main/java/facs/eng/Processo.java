@@ -1,22 +1,57 @@
 package facs.eng;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Processo {
 
-	private Date data;
-	private String tipo;
+	private List<String> numProcesso;
+	private Orgao orgaoJulgador;
+	private String faseProcessual;
+	private String natureza;
+	private Cliente cliente;
+	private String posicaoCliente;
+	private String parteContraria;
+	private Advogado advogado;
 	private String status;
-	private String descricao;
-	private Date vencimento;
+	private Date dataAjuizamento;
+	private Contrato contrato;
+	private ListaAndamentos andamentos;
+	private ListaPrazos prazos;
 
-	public Processo(Date data, String tipo, String status, String descricao, Date vecimento) {
-		this.data = data;
-		this.tipo = tipo;
+
+	public Processo(String numero,
+					Orgao orgaoJulgador,
+					String faseProcessual,
+					String natureza,
+					Cliente cliente,
+					String posicaoCliente,
+					String parteContraria,
+					Advogado advogado,
+					String status,
+					Date dataAjuizamento,
+					Contrato contrato) {
+
+		this.adicionarProcesso(numero);
+		this.orgaoJulgador = orgaoJulgador;
+		this.faseProcessual = faseProcessual;
+		this.natureza = natureza;
+		this.cliente = cliente;
+		this.posicaoCliente = posicaoCliente;
+		this.parteContraria = parteContraria;
+		this.advogado = advogado;
 		this.status = status;
-		this.descricao = descricao;
-		this.vencimento = vencimento;
+		this.dataAjuizamento = dataAjuizamento;
+		this.contrato = contrato;
+	}
 
+	public void adicionarProcesso(String novoNumero){
+		if(numProcesso.size() >= 5) {
+			System.out.println("Ação não permitida: Número máximo de processos alcançado!");
+			return;
+		}
+		numProcesso.add(novoNumero);
 	}
 
 	public void mostrarDetalhes() {
