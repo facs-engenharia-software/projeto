@@ -2,10 +2,12 @@ package facs.eng;
 
 public class Orgao {
 
+    private static long idOrgao;
     private String nome;
     private String vinculacaoSuperior;
 
     public Orgao(String nome, String vinculacaoSuperior) {
+        Orgao.idOrgao = idOrgao++;
         this.nome = nome;
         this.vinculacaoSuperior = vinculacaoSuperior;
     }

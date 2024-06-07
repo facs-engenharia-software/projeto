@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Andamento {
 
-    private final long idAndamento;
+    private static long idAndamento;
     private Date data;
     private String descricao;
 
-    public Andamento(long idAndamento, String descricao) {
-        this.idAndamento = idAndamento;
+    public Andamento(String descricao) {
+        Andamento.idAndamento = idAndamento++;
         this.data = new Date();
         this.descricao = descricao;
     }

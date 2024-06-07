@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class Contrato {
 
-    private long idContrato;
+    private static long idContrato;
     private String tipoContrato;
     private Date dataCelebracao;
-    private Date dataValidade;
+    private String validade;
     private String status;
 
     private Contrato() {}
 
-    public Contrato(long idContrato, String tipoContrato, Date dataCelebracao, Date dataValidade, String status) {
-        this.idContrato = idContrato;
+    public Contrato(long idContrato, String tipoContrato, Date dataCelebracao, String validade, String status) {
+        Contrato.idContrato = idContrato++;
         this.tipoContrato = tipoContrato;
         this.dataCelebracao = dataCelebracao;
-        this.dataValidade = dataValidade;
+        this.validade = validade;
         this.status = status;
     }
 
@@ -24,16 +24,38 @@ public class Contrato {
         return this.idContrato;
     }
 
-    public void setIdContrato(long idContrato) {
-        this.idContrato = idContrato;
-    }
-
     public String getTipoContrato() {
         return this.tipoContrato;
     }
 
     public void setTipoContrato(String tipoContrato) {
-        this.tipoContrato = tipoContrato;
+        String exito = "Êxito";
+        String mensal = "Mensal fixo";
+        String fixo = "Inicial fixo";
+        String parcelado = "Parcelado por etapa";
+
+        switch (tipoContrato.toLowerCase()){
+            case "êxito":
+                this.tipoContrato = exito;
+            case "exito":
+                this.tipoContrato = exito;
+            case "mensal":
+                this.tipoContrato = mensal;
+            case "mensal fixo":
+                this.tipoContrato = mensal;
+            case "fixo":
+                 this.tipoContrato = fixo;
+            case "parcelado":
+                this.tipoContrato = parcelado;
+            case "parcelado por etapa":
+                this.tipoContrato = parcelado;
+            case "parcelado etapas":
+                this.tipoContrato = parcelado;
+            case "misto":
+                this.tipoContrato = "Misto";
+            default:
+                throw new IllegalArgumentException("Argumento inválido! Por favor, tente novamente");
+        }
     }
 
     public Date getDataCelebracao() {
@@ -44,12 +66,16 @@ public class Contrato {
         this.dataCelebracao = dataCelebracao;
     }
 
-    public Date getDataValidade() {
-        return this.dataValidade;
+    public String getValidade() {
+        return this.validade;
     }
 
-    public void setDataValidade(Date dataValidade) {
-        this.dataValidade = dataValidade;
+    public void setValidade(String validade) {
+        if(validade.equalsIgnoreCase("definida")){
+            this.validade = validade;
+        } else if (validade.equalsIgnoreCase("indefinida")) {
+            this.validade = validade;
+        } else throw new IllegalArgumentException("Argumento inválido! Por favor, tente novamente");
     }
 
     public String getStatus() {
@@ -57,6 +83,21 @@ public class Contrato {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        String valido = "Válido";
+        String vencido = "Vencido";
+        String rescindido = "Rescindido";
+
+        switch (status.toLowerCase()){
+            case "valido":
+                this.status = valido;
+            case "válido":
+                this.status = valido;
+            case "vencido":
+                this.status = vencido;
+            case "rescindido":
+                this.status = rescindido;
+            default:
+                throw new IllegalArgumentException("Argumento inválido! Por favor, tente novamente");
+        }
     }
 }
