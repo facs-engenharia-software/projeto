@@ -17,8 +17,8 @@ public class SistemaAdvocacia {
         this.advogados = new ArrayList<>();
     }
 
-    public void cadastrarCliente(String cpf, String nome, String cep, String telefone) {
-        Cliente cliente = new Cliente();
+    public void cadastrarPessoaFisica(String nome, String endereco, String telefone, String cpf) {
+        Cliente cliente = new PessoaFisica(nome, endereco, telefone, cpf);
         clientes.add(cliente);
         System.out.println("Cliente " + nome + " cadastrado com sucesso!");
     }
@@ -69,7 +69,7 @@ public class SistemaAdvocacia {
 
     private Cliente buscarCliente(String cpf) {
         for (Cliente cliente : clientes) {
-            if (cliente.getCpf().equals(cpf)) {
+            if (cliente.getIdReceitaFederal().equals(cpf)) {
                 return cliente;
             }
         }

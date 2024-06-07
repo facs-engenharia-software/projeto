@@ -3,16 +3,16 @@ package facs.eng;
 import java.util.List;
 import java.util.ArrayList;
 
-class Advogado {
+public class Advogado {
 	private String nome;
 	private String numeroRegistro;
-	private String cep;
+	private String endereco;
 	private List<Processo> processos;
 
-	public Advogado(String nome, String numeroRegistro, String cep) {
+	public Advogado(String nome, String numeroRegistro, String endereco) {
 		this.nome = nome;
 		this.numeroRegistro = numeroRegistro;
-		this.cep = cep;
+		this.endereco = endereco;
 		this.processos = new ArrayList<>();
 	}
 
@@ -32,12 +32,12 @@ class Advogado {
 		this.numeroRegistro = numeroRegistro;
 	}
 
-	public String getCep() {
-		return cep;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public List<Processo> getProcessos() {
