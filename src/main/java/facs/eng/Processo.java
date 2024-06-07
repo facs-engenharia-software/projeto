@@ -12,7 +12,7 @@ public class Processo {
 	private String natureza;
 	private Cliente cliente;
 	private String posicaoCliente;
-	private List<String> parteContraria;
+	private List<ParteContraria> parteContraria;
 	private Advogado advogado;
 	private String status;
 	private Date dataAjuizamento;
@@ -27,7 +27,7 @@ public class Processo {
 					String natureza,
 					Cliente cliente,
 					String posicaoCliente,
-					String parteContraria,
+					ParteContraria parteContraria,
 					Advogado advogado,
 					String status,
 					Date dataAjuizamento,
@@ -189,11 +189,11 @@ public class Processo {
 		this.posicaoCliente = posicaoCliente;
 	}
 
-	public void adicionarParteContraria(String parteContraria) {
+	public void adicionarParteContraria(ParteContraria parteContraria) {
 		this.parteContraria.add(parteContraria);
 	}
 
-	public void removerParteContraria(String parteContraria) {
+	public void removerParteContraria(ParteContraria parteContraria) {
 		this.parteContraria.remove(parteContraria);
 	}
 
@@ -242,7 +242,7 @@ public class Processo {
 		return this.posicaoCliente;
 	}
 
-	public List<String> getParteContraria() {
+	public List<ParteContraria> getParteContraria() {
 		return this.parteContraria;
 	}
 
