@@ -9,11 +9,13 @@ public class PessoaFisica extends Cliente{
         this.cpf = cpf;
     }
 
-    public String getCpf() {
+    @Override
+    public String getIdReceitaFederal() {
         return this.cpf;
     }
 
-    public void setCpf(String cpf) {
+    @Override
+    public void setIdReceitaFederal(String cpf) {
         this.cpf = cpf;
     }
 }

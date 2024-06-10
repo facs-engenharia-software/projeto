@@ -28,7 +28,7 @@ public class AdaptadorCliente {
     }
 
     public AdaptadorCliente(PessoaFisica pessoaFisica) {
-        this.cpfOuCnpjDoCliente = pessoaFisica.getCpf();
+        this.cpfOuCnpjDoCliente = pessoaFisica.getIdReceitaFederal();
         this.nome = pessoaFisica.getNome();
         this.nomeDoResponsavel = null;
         this.endereco = pessoaFisica.getEndereco();
@@ -36,7 +36,7 @@ public class AdaptadorCliente {
     }
 
     public AdaptadorCliente(PessoaJuridica pessoaJuridica) {
-        this.cpfOuCnpjDoCliente = pessoaJuridica.getCnpj();
+        this.cpfOuCnpjDoCliente = pessoaJuridica.getIdReceitaFederal();
         this.nome = pessoaJuridica.getNome();
         this.nomeDoResponsavel = pessoaJuridica.getResponsavel();
         this.endereco = pessoaJuridica.getEndereco();

@@ -11,11 +11,13 @@ public class PessoaJuridica extends Cliente{
         this.responsavel = responsavel;
     }
 
-    public String getCnpj() {
+    @Override
+    public String getIdReceitaFederal() {
         return this.cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    @Override
+    public void setIdReceitaFederal(String cnpj) {
         this.cnpj = cnpj;
     }
 
