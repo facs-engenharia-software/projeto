@@ -16,8 +16,8 @@ class DbInsercaoOrgao {
         try (PreparedStatement pstmt = connection.prepareStatement(
                 "INSERT INTO orgaos (identificacao_do_orgao, vinculacao_hierarquica) VALUES (?, ?)")
         ) {
-            pstmt.setString(1, orgao.getIdentificacaoDoOrgao());
-            pstmt.setString(2, orgao.getVinculacaoHierarquica());
+            pstmt.setString(1, orgao.getNome());
+            pstmt.setString(2, orgao.getVinculacaoSuperior());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());

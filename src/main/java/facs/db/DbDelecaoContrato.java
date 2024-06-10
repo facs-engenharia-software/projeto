@@ -1,7 +1,5 @@
 package facs.db;
 
-import facs.eng.Contrato;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,7 +10,7 @@ class DbDelecaoContrato {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void deletarContrato(Contrato contrato, Connection connection) {
+    static void deletarContrato(AdaptadorContrato contrato, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("DELETE FROM contratos WHERE numero_do_contrato = ?")) {
             pstmt.setString(1, contrato.getNumeroDoContrato());
             pstmt.executeUpdate();

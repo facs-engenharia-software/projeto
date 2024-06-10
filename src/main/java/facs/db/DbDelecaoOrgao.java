@@ -14,7 +14,7 @@ class DbDelecaoOrgao {
 
     static void deletarOrgao(Orgao orgao, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("DELETE FROM orgaos WHERE identificacao_do_orgao = ?")) {
-            pstmt.setString(1, orgao.getIdentificacaoDoOrgao());
+            pstmt.setString(1, orgao.getNome());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());

@@ -5,7 +5,7 @@ public class PessoaJuridica extends Cliente{
     private String cnpj;
     private String responsavel;
 
-    protected PessoaJuridica(String nome, String endereco, String telefone, String cnpj, String responsavel){
+    public PessoaJuridica(String nome, String endereco, String telefone, String cnpj, String responsavel){
         super(nome, endereco, telefone);
         this.cnpj = cnpj;
         this.responsavel = responsavel;

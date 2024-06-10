@@ -16,7 +16,7 @@ class DbInsercaoAdvogado {
         try (PreparedStatement pstmt = connection.prepareStatement(
                 "INSERT INTO advogados (registro_do_advogado, nome, endereco) VALUES (?, ?, ?)")
         ) {
-            pstmt.setString(1, advogado.getRegistroDoAdvogado());
+            pstmt.setString(1, advogado.getNumeroRegistro());
             pstmt.setString(2, advogado.getNome());
             pstmt.setString(3, advogado.getEndereco());
             pstmt.executeUpdate();

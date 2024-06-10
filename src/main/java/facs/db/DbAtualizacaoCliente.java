@@ -12,23 +12,23 @@ class DbAtualizacaoCliente {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void atualizarCpf(Cliente cliente, String novoValor, Connection connection) {
+    static void atualizarCpf(AdaptadorCliente cliente, String novoValor, Connection connection) {
         atualizar(cliente.getCpfOuCnpjDoCliente(), novoValor, connection, "UPDATE clientes SET cpf_cnpj_do_cliente = ? WHERE cpf_cnpj_do_cliente = ?");
     }
 
-    static void atualizarNome(Cliente cliente, String novoValor, Connection connection) {
+    static void atualizarNome(AdaptadorCliente cliente, String novoValor, Connection connection) {
         atualizar(cliente.getCpfOuCnpjDoCliente(), novoValor, connection, "UPDATE clientes SET nome = ? WHERE cpf_cnpj_do_cliente = ?");
     }
 
-    static void atualizarNomeDoResponsavel(Cliente cliente, String novoValor, Connection connection) {
+    static void atualizarNomeDoResponsavel(AdaptadorCliente cliente, String novoValor, Connection connection) {
         atualizar(cliente.getCpfOuCnpjDoCliente(), novoValor, connection, "UPDATE clientes SET nome_do_responsavel = ? WHERE cpf_cnpj_do_cliente = ?");
     }
 
-    static void atualizarEndereco(Cliente cliente, String novoValor, Connection connection) {
+    static void atualizarEndereco(AdaptadorCliente cliente, String novoValor, Connection connection) {
         atualizar(cliente.getCpfOuCnpjDoCliente(), novoValor, connection, "UPDATE clientes SET endereco = ? WHERE cpf_cnpj_do_cliente = ?");
     }
 
-    static void atualizarTelefone(Cliente cliente, String novoValor, Connection connection) {
+    static void atualizarTelefone(AdaptadorCliente cliente, String novoValor, Connection connection) {
         atualizar(cliente.getCpfOuCnpjDoCliente(), novoValor, connection, "UPDATE clientes SET telefone = ? WHERE cpf_cnpj_do_cliente = ?");
     }
 

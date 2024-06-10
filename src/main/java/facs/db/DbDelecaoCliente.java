@@ -12,7 +12,7 @@ class DbDelecaoCliente {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void deletarCliente(Cliente cliente, Connection connection) {
+    static void deletarCliente(AdaptadorCliente cliente, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("DELETE FROM clientes WHERE cpf_cnpj_do_cliente = ?")) {
             pstmt.setString(1, cliente.getCpfOuCnpjDoCliente());
             pstmt.executeUpdate();

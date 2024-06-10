@@ -13,11 +13,11 @@ class DbAtualizacaoOrgao {
     }
 
     static void atualizarIdentificacaoDoOrgao(Orgao orgao, String novoValor, Connection connection) {
-        atualizar(orgao.getIdentificacaoDoOrgao(), novoValor, connection, "UPDATE orgaos SET identificacao_do_orgao = ? WHERE identificacao_do_orgao = ?");
+        atualizar(orgao.getNome(), novoValor, connection, "UPDATE orgaos SET identificacao_do_orgao = ? WHERE identificacao_do_orgao = ?");
     }
 
     static void atualizarVinculacaoHierarquica(Orgao orgao, String novoValor, Connection connection) {
-        atualizar(orgao.getIdentificacaoDoOrgao(), novoValor, connection, "UPDATE orgaos SET vinculacao_hierarquica = ? WHERE identificacao_do_orgao = ?");
+        atualizar(orgao.getNome(), novoValor, connection, "UPDATE orgaos SET vinculacao_hierarquica = ? WHERE identificacao_do_orgao = ?");
     }
 
     private static void atualizar(String chave, String novoValor, Connection connection, String query) {

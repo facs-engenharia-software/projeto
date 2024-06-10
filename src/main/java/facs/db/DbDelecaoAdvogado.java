@@ -14,7 +14,7 @@ class DbDelecaoAdvogado {
 
     static void deletarAdvogado(Advogado advogado, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("DELETE FROM advogados WHERE registro_do_advogado = ?")) {
-            pstmt.setString(1, advogado.getRegistroDoAdvogado());
+            pstmt.setString(1, advogado.getNumeroRegistro());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());

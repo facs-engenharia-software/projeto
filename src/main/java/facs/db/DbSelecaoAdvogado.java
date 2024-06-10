@@ -22,8 +22,8 @@ class DbSelecaoAdvogado {
             while (rs.next()) {
                 listaDeResultados.add(
                         new Advogado(
-                                rs.getString("registro_do_advogado"),
                                 rs.getString("nome"),
+                                rs.getString("registro_do_advogado"),
                                 rs.getString("endereco")
                         )
                 );

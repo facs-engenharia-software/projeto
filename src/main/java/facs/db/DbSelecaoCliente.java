@@ -14,14 +14,14 @@ class DbSelecaoCliente {
         throw new IllegalStateException("Utility class only");
     }
 
-    static ArrayList<Cliente> selecionarCliente(String cpfOuCnpj, Connection connection) {
+    static ArrayList<AdaptadorCliente> selecionarCliente(String cpfOuCnpj, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM clientes WHERE cpf_cnpj_do_cliente = ?")) {
             pstmt.setString(1, cpfOuCnpj);
             ResultSet rs = pstmt.executeQuery();
-            ArrayList<Cliente> listaDeResultados = new ArrayList<>();
+            ArrayList<AdaptadorCliente> listaDeResultados = new ArrayList<>();
             while (rs.next()) {
                 listaDeResultados.add(
-                        new Cliente(
+                        new AdaptadorCliente(
                                 rs.getString("cpf_cnpj_do_cliente"),
                                 rs.getString("nome"),
                                 rs.getString("nome_do_responsavel"),

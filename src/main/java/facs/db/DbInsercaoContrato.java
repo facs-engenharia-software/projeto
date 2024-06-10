@@ -1,7 +1,5 @@
 package facs.db;
 
-import facs.eng.Contrato;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,7 +11,7 @@ class DbInsercaoContrato {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void inserirContrato(Contrato contrato, Connection connection) {
+    static void inserirContrato(AdaptadorContrato contrato, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(
                 "INSERT INTO contratos (numero_do_contrato, tipo_de_contrato, data_de_celebracao, validade, status_do_contrato, cpf_cnpj_do_cliente) VALUES (?, ?, ?, ?, ?, ?)")
         ) {

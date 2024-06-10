@@ -4,7 +4,7 @@ public class PessoaFisica extends Cliente{
 
     private String cpf;
 
-    protected PessoaFisica(String nome, String endereco, String telefone, String cpf){
+    public PessoaFisica(String nome, String endereco, String telefone, String cpf){
         super(nome, endereco, telefone);
         this.cpf = cpf;
     }

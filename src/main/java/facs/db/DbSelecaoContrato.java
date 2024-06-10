@@ -1,7 +1,5 @@
 package facs.db;
 
-import facs.eng.Contrato;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,14 +12,14 @@ class DbSelecaoContrato {
         throw new IllegalStateException("Utility class only");
     }
 
-    static ArrayList<Contrato> selecionarContrato(String numeroDoContrato, Connection connection) {
+    static ArrayList<AdaptadorContrato> selecionarContrato(String numeroDoContrato, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM contratos WHERE numero_do_contrato = ?")) {
             pstmt.setString(1, numeroDoContrato);
             ResultSet rs = pstmt.executeQuery();
-            ArrayList<Contrato> listaDeResultados = new ArrayList<>();
+            ArrayList<AdaptadorContrato> listaDeResultados = new ArrayList<>();
             while (rs.next()) {
                 listaDeResultados.add(
-                        new Contrato(
+                        new AdaptadorContrato(
                                 rs.getString("numero_do_contrato"),
                                 rs.getString("tipo_de_contrato"),
                                 rs.getDate("data_de_celebracao").toLocalDate(),

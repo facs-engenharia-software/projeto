@@ -1,7 +1,5 @@
 package facs.db;
 
-import facs.eng.Contrato;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,27 +11,27 @@ class DbAtualizacaoContrato {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void atualizarNumeroDoContrato(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarNumeroDoContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET numero_do_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarTipoDeContrato(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarTipoDeContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET tipo_de_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarDataDeCelebracao(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarDataDeCelebracao(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), Date.valueOf(novoValor), connection, "UPDATE contratos SET data_de_celebracao = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarValidade(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarValidade(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET validade = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarStatusDoContrato(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarStatusDoContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET status_do_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarCpfCnpjDoCliente(Contrato contrato, String novoValor, Connection connection) {
+    static void atualizarCpfCnpjDoCliente(AdaptadorContrato contrato, String novoValor, Connection connection) {
         atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET cpf_cnpj_do_cliente = ? WHERE numero_do_contrato = ?");
     }
 

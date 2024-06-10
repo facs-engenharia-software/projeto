@@ -12,7 +12,7 @@ class DbInsercaoCliente {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void inserirCliente(Cliente cliente, Connection connection) {
+    static void inserirCliente(AdaptadorCliente cliente, Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(
                 "INSERT INTO clientes (cpf_cnpj_do_cliente, nome, nome_do_responsavel, endereco, telefone) VALUES (?, ?, ?, ?, ?)")
         ) {

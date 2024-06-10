@@ -20,45 +20,52 @@ public class DAOContrato {
     }
 
     public Contrato selecionar(String numeroDoContrato) {
-        return DbSelecaoContrato.selecionarContrato(numeroDoContrato, this.connection).get(0);
+        return DbSelecaoContrato.selecionarContrato(numeroDoContrato, this.connection).get(0).formatoOriginal();
     }
 
     public ArrayList<Contrato> selecionarTodos(String numeroDoContrato) {
-        return DbSelecaoContrato.selecionarContrato(numeroDoContrato, this.connection);
+        ArrayList<Contrato> resultado = new ArrayList<>();
+        for (AdaptadorContrato adaptadorContrato : DbSelecaoContrato.selecionarContrato(numeroDoContrato, this.connection)) {
+            resultado.add(adaptadorContrato.formatoOriginal());
+        }
+        return resultado;
     }
 
     public void inserir(Contrato contrato) {
         if (contrato != null) {
-            DbInsercaoContrato.inserirContrato(contrato, this.connection);
+            AdaptadorContrato adaptadorContrato = new AdaptadorContrato(contrato);
+            DbInsercaoContrato.inserirContrato(adaptadorContrato, this.connection);
         }
     }
 
     public void deletar(Contrato contrato) {
         if (contrato != null) {
-            DbDelecaoContrato.deletarContrato(contrato, this.connection);
+            AdaptadorContrato adaptadorContrato = new AdaptadorContrato(contrato);
+            DbDelecaoContrato.deletarContrato(adaptadorContrato, this.connection);
         }
     }
 
     public void atualizar(int op, Contrato contrato, String novoValor) {
         if (contrato != null) {
+            AdaptadorContrato adaptadorContrato = new AdaptadorContrato(contrato);
             switch (op) {
                 case 1:
-                    DbAtualizacaoContrato.atualizarNumeroDoContrato(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarNumeroDoContrato(adaptadorContrato, novoValor, this.connection);
                     break;
                 case 2:
-                    DbAtualizacaoContrato.atualizarTipoDeContrato(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarTipoDeContrato(adaptadorContrato, novoValor, this.connection);
                     break;
                 case 3:
-                    DbAtualizacaoContrato.atualizarDataDeCelebracao(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarDataDeCelebracao(adaptadorContrato, novoValor, this.connection);
                     break;
                 case 4:
-                    DbAtualizacaoContrato.atualizarValidade(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarValidade(adaptadorContrato, novoValor, this.connection);
                     break;
                 case 5:
-                    DbAtualizacaoContrato.atualizarStatusDoContrato(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarStatusDoContrato(adaptadorContrato, novoValor, this.connection);
                     break;
                 case 6:
-                    DbAtualizacaoContrato.atualizarCpfCnpjDoCliente(contrato, novoValor, this.connection);
+                    DbAtualizacaoContrato.atualizarCpfCnpjDoCliente(adaptadorContrato, novoValor, this.connection);
                     break;
                 default:
                     System.out.println("DEBUG: opção inválida.");

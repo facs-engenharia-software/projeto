@@ -15,11 +15,12 @@ public class DbConexao {
 
     public static Connection conectar() {
         Dotenv dotenv = Dotenv.load();
-        String dbUrl = "jdbc:" + dotenv.get("DB_URL") +
-                ":" + dotenv.get("DB_PORT") +
-                "/" + dotenv.get("DB_NAME") +
-                "?user=" + dotenv.get("DB_USER") +
-                "&password=" + dotenv.get("DB_PW");
+//        String dbUrl = "jdbc:" + dotenv.get("DB_URL") +
+//                ":" + dotenv.get("DB_PORT") +
+//                "/" + dotenv.get("DB_NAME") +
+//                "?user=" + dotenv.get("DB_USER") +
+//                "&password=" + dotenv.get("DB_PW");
+        String dbUrl = dotenv.get("DB_URL");
         try {
             return DriverManager.getConnection(dbUrl);
         } catch (SQLException e) {
