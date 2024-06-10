@@ -1,0 +1,323 @@
+@charset "UTF-8";
+
+h5 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(33, 59, 78);
+}
+
+.menu-header {
+    width: 50%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    padding-left: 10px;
+    display: flex;
+    list-style: none;
+}
+
+ul {
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    left: 40%;
+}
+
+li.button:hover {
+    cursor: pointer;
+}
+
+li {
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 15px;
+
+}
+
+
+.conteiner {
+    position: relative;
+}
+
+.direita {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 50px;
+    left: 290px;
+    width: 100%;
+    height: 770px;
+
+}
+
+.dire-up {
+    position: fixed;
+    height: 300px;
+    width: 100%;
+    border-bottom: solid rgb(33, 59, 78);
+}
+
+.dire-down {
+    height: 420px;
+    width: 100%;
+    background-color: solid red;
+}
+
+.esquerda {
+    position: fixed;
+    top: 50px;
+    width: 290px;
+    height: 770px;
+    border-right: solid rgb(33, 59, 78);
+}
+
+.esq-up {
+    height: 300px;
+    width: 100%;
+    border-bottom: solid rgb(33, 59, 78);
+}
+
+.esq-down {
+    height: 420px;
+    width: 100%;
+}
+
+.txt-res {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+}
+
+.txt-h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+}
+
+.buttons {
+    position: relative;
+    top: 40px;
+    left: 77px;
+}
+
+.button {
+    width: 130px;
+    margin-top: 10px;
+    border-radius: 7px;
+    padding: 7px;
+    border-style: none;
+}
+
+.button:hover {
+    color: white;
+    background-color: rgb(33, 59, 78);
+    cursor: pointer;
+    transition: 0.3s;
+    border-style: none;
+}
+
+.ser-but {
+    position: relative;
+    top: 80px;
+    left: 34px;
+
+    width: 200px;
+    padding: 8px;
+
+    border-radius: 5px;
+}
+
+.box-resul{
+    position: fixed;
+    
+    top: 53%;
+    left: 30px;
+
+    width: 230px;
+    height: 345px;
+    background-color: rgb(208, 205, 205);
+
+    border-radius: 5px;
+}
+
+.n-processos{
+    position: relative;
+    top: 20px;
+    
+    margin: 8px;
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    cursor: pointer;
+}
+
+.n-processos:hover{
+    color:rgb(81, 132, 168);
+    transition: 0.3s;
+}
+
+.andamentos{
+    position: absolute;
+
+    top: 50px;
+    left: 30px;
+
+    width: 500px;
+    height: 230px;
+    background-color: rgb(208, 205, 205);
+
+    border-radius: 5px;
+    
+}
+
+.andame{
+    display: inline-block;
+
+    position: relative;
+    left: 180px;
+    top: 10px;
+    margin: 0px
+    
+
+
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.anda-data{
+    position: absolute;
+    top: 3px;
+    left: 10px;
+
+    margin: 0px;
+    padding: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+.anda-desc{
+    position: absolute;
+    top: 3px;
+    left: 220px;
+
+    margin: 0px;
+    padding: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+.linha-sepa{
+    position: absolute;
+
+    top: 0px;
+    left: 90px;
+
+    width: 10px;
+    height: 230px;
+
+
+    border-left: solid rgb(33, 59, 78);
+
+}
+
+
+.txt-desc{
+    position: relative;
+    left: 140px;
+    top: 40px;
+
+    display: block;
+}
+
+.prazos{
+    position: absolute;
+
+    top: 50px;
+    left: 630px;
+
+    width: 550px;
+    height: 230px;
+    background-color: rgb(208, 205, 205);
+
+    border-radius: 5px;
+}
+
+.praz{
+    display: inline-block;
+
+    position: absolute;
+    left: 850px;
+    top: 10px;
+    margin: 0px
+}
+
+.box-dirdown{
+    position: fixed;
+
+    top: 390px;
+    left: 325px;
+
+    width: 1140px;
+    height: 350px;
+    background-color: rgb(208, 205, 205);
+
+    border-radius: 5px;
+}
+
+
+.txt-info-processo{
+    margin-left: 15px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.txt-info-processo-dois{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+
+    position: relative;
+    top: 370px;
+    left: 670px;
+}
+
+.data-andamento{
+    position: relative;
+
+    top: 45px;
+    left: 7px;
+    bottom: 5px;
+}
+
+.txt-desc-prazo{
+    position: relative;
+    
+    left: 110px;
+    bottom: 25px;
+}
+
+
