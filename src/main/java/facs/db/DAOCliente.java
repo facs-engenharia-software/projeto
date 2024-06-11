@@ -1,7 +1,6 @@
 package facs.db;
 
 import facs.eng.Cliente;
-import facs.eng.Contrato;
 import facs.eng.PessoaFisica;
 import facs.eng.PessoaJuridica;
 
