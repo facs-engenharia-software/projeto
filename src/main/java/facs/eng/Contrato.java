@@ -4,20 +4,29 @@ import java.util.Date;
 
 public class Contrato {
 
-    private static long idContrato;
+    private long idContrato;
     private String tipoContrato;
     private Date dataCelebracao;
     private String validade;
     private String status;
-
-    private Contrato() {}
+    private String cpfCnpjCliente;
 
     public Contrato(long idContrato, String tipoContrato, Date dataCelebracao, String validade, String status) {
-        Contrato.idContrato = idContrato++;
+        this.idContrato = idContrato;
         this.tipoContrato = tipoContrato;
         this.dataCelebracao = dataCelebracao;
         this.validade = validade;
         this.status = status;
+        this.cpfCnpjCliente = null;
+    }
+
+    public Contrato(long idContrato, String tipoContrato, Date dataCelebracao, String validade, String status, String cpfCnpjCliente) {
+        this.idContrato = idContrato;
+        this.tipoContrato = tipoContrato;
+        this.dataCelebracao = dataCelebracao;
+        this.validade = validade;
+        this.status = status;
+        this.cpfCnpjCliente = cpfCnpjCliente;
     }
 
     public long getIdContrato() {
@@ -99,5 +108,15 @@ public class Contrato {
             default:
                 throw new IllegalArgumentException("Argumento inválido! Por favor, tente novamente");
         }
+
     }
+
+    public String getCpfCnpjCliente() {
+        return this.cpfCnpjCliente;
+    }
+
+    public void setCpfCnpjCliente(String cpfCnpjCliente) {
+        this.cpfCnpjCliente = cpfCnpjCliente;
+    }
+
 }

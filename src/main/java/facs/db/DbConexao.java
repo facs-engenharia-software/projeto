@@ -7,13 +7,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class DbConexao {
+class DbConexao {
 
     private DbConexao(){
         throw new IllegalStateException("Utility class only");
     }
 
-    public static Connection conectar() {
+    static Connection conectar() {
         Dotenv dotenv = Dotenv.load();
 //        String dbUrl = "jdbc:" + dotenv.get("DB_URL") +
 //                ":" + dotenv.get("DB_PORT") +

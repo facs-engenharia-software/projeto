@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Prazo {
 
-    private static long idPrazo;
+    private long idPrazo;
     private String descricao;
     private Date dataVencimento;
 
-    public Prazo(String descricao, Date dataVencimento) {
-        Prazo.idPrazo = idPrazo++;
+    public Prazo(long idPrazo, String descricao, Date dataVencimento) {
+        this.idPrazo = idPrazo;
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
     }

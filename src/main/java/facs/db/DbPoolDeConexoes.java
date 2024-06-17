@@ -7,7 +7,7 @@ import java.util.List;
 public class DbPoolDeConexoes {
     private List<Connection> poolDeConexoes = new ArrayList<>();
     private List<Connection> poolUtilizado = new ArrayList<>();
-    private static final int POOL_TAMANHO = 5;
+    private static final int POOL_TAMANHO = 10;
 
     private static DbPoolDeConexoes instancia = null;
 

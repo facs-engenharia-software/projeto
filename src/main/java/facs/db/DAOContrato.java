@@ -19,9 +19,10 @@ public class DAOContrato {
         return new DAOContrato(connection);
     }
 
-    public Contrato selecionar(String numeroDoContrato) {
+    public Contrato selecionar(long numeroDoContrato) {
+        String numeroDoContratoAdaptado = Long.toString(numeroDoContrato);
         try {
-            return DbSelecaoContrato.selecionarContrato(numeroDoContrato, this.connection).get(0).formatoOriginal();
+            return DbSelecaoContrato.selecionarContrato(numeroDoContratoAdaptado, this.connection).get(0).formatoOriginal();
         } catch(IndexOutOfBoundsException e) {
             return null;
         }

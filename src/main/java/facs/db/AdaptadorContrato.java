@@ -32,7 +32,8 @@ public class AdaptadorContrato {
         this.tipoDeContrato = contrato.getTipoContrato();
         this.dataDeCelebracao = Instant.ofEpochMilli(contrato.getDataCelebracao().getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
         this.validade = contrato.getValidade();
-        this.statusDoContrato = contrato.getValidade();
+        this.statusDoContrato = contrato.getStatus();
+        this.cpfOuCnpjDoCliente = contrato.getCpfCnpjCliente();
     }
 
     public Contrato formatoOriginal() {
@@ -41,7 +42,8 @@ public class AdaptadorContrato {
                 this.tipoDeContrato,
                 Date.from(this.dataDeCelebracao.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()),
                 this.validade,
-                this.statusDoContrato
+                this.statusDoContrato,
+                this.cpfOuCnpjDoCliente
         );
     }
 
