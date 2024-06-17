@@ -39,8 +39,8 @@ public abstract class Cliente {
 		this.telefone = telefone;
 	}
 
-	abstract String getIdReceitaFederal();
+	public abstract String getIdReceitaFederal();
 
-	abstract void setIdReceitaFederal(String idReceitaFederal);
+	public abstract void setIdReceitaFederal(String idReceitaFederal);
 
 }

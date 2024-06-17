@@ -10,16 +10,16 @@ class DbAtualizacaoOrgao {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void atualizarIdentificacaoDoOrgao(AdaptadorOrgao orgao, String novoValor, Connection connection) {
-        atualizar(orgao.getIdOrgao(), novoValor, connection, "UPDATE orgaos SET identificacao_do_orgao = ? WHERE identificacao_do_orgao = ?");
+    static void atualizarIdentificacaoDoOrgao(String identificacaoDoOrgao, String novoValor, Connection connection) {
+        atualizar(identificacaoDoOrgao, novoValor, connection, "UPDATE orgaos SET identificacao_do_orgao = ? WHERE identificacao_do_orgao = ?");
     }
 
-    static void atualizarNomeDoOrgao(AdaptadorOrgao orgao, String novoValor, Connection connection) {
-        atualizar(orgao.getIdOrgao(), novoValor, connection, "UPDATE orgaos SET nome_do_orgao = ? WHERE identificacao_do_orgao = ?");
+    static void atualizarNomeDoOrgao(String identificacaoDoOrgao, String novoValor, Connection connection) {
+        atualizar(identificacaoDoOrgao, novoValor, connection, "UPDATE orgaos SET nome_do_orgao = ? WHERE identificacao_do_orgao = ?");
     }
 
-    static void atualizarVinculacaoHierarquica(AdaptadorOrgao orgao, String novoValor, Connection connection) {
-        atualizar(orgao.getIdOrgao(), novoValor, connection, "UPDATE orgaos SET vinculacao_hierarquica = ? WHERE identificacao_do_orgao = ?");
+    static void atualizarVinculacaoHierarquica(String identificacaoDoOrgao, String novoValor, Connection connection) {
+        atualizar(identificacaoDoOrgao, novoValor, connection, "UPDATE orgaos SET vinculacao_hierarquica = ? WHERE identificacao_do_orgao = ?");
     }
 
     private static void atualizar(String chave, String novoValor, Connection connection, String query) {

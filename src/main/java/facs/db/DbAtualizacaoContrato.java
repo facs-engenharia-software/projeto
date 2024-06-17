@@ -11,28 +11,28 @@ class DbAtualizacaoContrato {
         throw new IllegalStateException("Utility class only");
     }
 
-    static void atualizarNumeroDoContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET numero_do_contrato = ? WHERE numero_do_contrato = ?");
+    static void atualizarNumeroDoContrato(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, novoValor, connection, "UPDATE contratos SET numero_do_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarTipoDeContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET tipo_de_contrato = ? WHERE numero_do_contrato = ?");
+    static void atualizarTipoDeContrato(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, novoValor, connection, "UPDATE contratos SET tipo_de_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarDataDeCelebracao(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), Date.valueOf(novoValor), connection, "UPDATE contratos SET data_de_celebracao = ? WHERE numero_do_contrato = ?");
+    static void atualizarDataDeCelebracao(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, Date.valueOf(novoValor), connection, "UPDATE contratos SET data_de_celebracao = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarValidade(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET validade = ? WHERE numero_do_contrato = ?");
+    static void atualizarValidade(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, novoValor, connection, "UPDATE contratos SET validade = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarStatusDoContrato(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET status_do_contrato = ? WHERE numero_do_contrato = ?");
+    static void atualizarStatusDoContrato(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, novoValor, connection, "UPDATE contratos SET status_do_contrato = ? WHERE numero_do_contrato = ?");
     }
 
-    static void atualizarCpfCnpjDoCliente(AdaptadorContrato contrato, String novoValor, Connection connection) {
-        atualizar(contrato.getNumeroDoContrato(), novoValor, connection, "UPDATE contratos SET cpf_cnpj_do_cliente = ? WHERE numero_do_contrato = ?");
+    static void atualizarCpfCnpjDoCliente(String numeroDoContrato, String novoValor, Connection connection) {
+        atualizar(numeroDoContrato, novoValor, connection, "UPDATE contratos SET cpf_cnpj_do_cliente = ? WHERE numero_do_contrato = ?");
     }
 
     private static void atualizar(String chave, String novoValor, Connection connection, String query) {

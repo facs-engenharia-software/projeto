@@ -20,7 +20,11 @@ public class DAOOrgao {
     }
 
     public Orgao selecionar(String identificacaoDoOrgao) {
-        return DbSelecaoOrgao.selecionarOrgao(identificacaoDoOrgao, this.connection).get(0).formatoOriginal();
+        try {
+            return DbSelecaoOrgao.selecionarOrgao(identificacaoDoOrgao, this.connection).get(0).formatoOriginal();
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
 
     public ArrayList<Orgao> selecionarTodos(String identificacaoDoOrgao) {
@@ -45,22 +49,19 @@ public class DAOOrgao {
         }
     }
 
-    public void atualizar(int op, Orgao orgao, String novoValor) {
-        if (orgao != null) {
-            AdaptadorOrgao adaptadorOrgao = new AdaptadorOrgao(orgao);
-            switch (op) {
-                case 1:
-                    DbAtualizacaoOrgao.atualizarIdentificacaoDoOrgao(adaptadorOrgao, novoValor, this.connection);
-                    break;
-                case 2:
-                    DbAtualizacaoOrgao.atualizarNomeDoOrgao(adaptadorOrgao, novoValor, this.connection);
-                    break;
-                case 3:
-                    DbAtualizacaoOrgao.atualizarVinculacaoHierarquica(adaptadorOrgao, novoValor, this.connection);
-                    break;
-                default:
-                    System.out.println("DEBUG: opção inválida.");
-            }
+    public void atualizar(int op, String identificacaoDoOrgao, String novoValor) {
+        switch (op) {
+            case 0:
+                DbAtualizacaoOrgao.atualizarIdentificacaoDoOrgao(identificacaoDoOrgao, novoValor, this.connection);
+                break;
+            case 1:
+                DbAtualizacaoOrgao.atualizarNomeDoOrgao(identificacaoDoOrgao, novoValor, this.connection);
+                break;
+            case 2:
+                DbAtualizacaoOrgao.atualizarVinculacaoHierarquica(identificacaoDoOrgao, novoValor, this.connection);
+                break;
+            default:
+                System.out.println("DEBUG: opção inválida.");
         }
     }
 }

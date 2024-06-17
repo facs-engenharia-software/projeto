@@ -1,6 +1,4 @@
-package facs.eng;
-
-import facs.db.DbConexao;
+package facs.db;
 
 import java.sql.Connection;
 import java.util.ArrayList;

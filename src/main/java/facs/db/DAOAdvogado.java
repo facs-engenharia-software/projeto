@@ -20,11 +20,19 @@ public class DAOAdvogado {
     }
 
     public Advogado selecionar(String registroDoAdvogado) {
-        return DbSelecaoAdvogado.selecionarAdvogado(registroDoAdvogado, this.connection).get(0);
+        try {
+            return DbSelecaoAdvogado.selecionarAdvogado(registroDoAdvogado, this.connection).get(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
 
     public ArrayList<Advogado> selecionarTodos(String registroDoAdvogado) {
-        return DbSelecaoAdvogado.selecionarAdvogado(registroDoAdvogado, this.connection);
+        ArrayList<Advogado> resultado = new ArrayList<>();
+        for (Advogado advogado : DbSelecaoAdvogado.selecionarAdvogado(registroDoAdvogado, this.connection)) {
+            resultado.add(advogado);
+        }
+        return resultado;
     }
 
     public void inserir(Advogado advogado) {
@@ -39,21 +47,19 @@ public class DAOAdvogado {
         }
     }
 
-    public void atualizar(int op, Advogado advogado, String novoValor) {
-        if (advogado != null) {
-            switch (op) {
-                case 1:
-                    DbAtualizacaoAdvogado.atualizarRegistroDoAdvogado(advogado, novoValor, this.connection);
-                    break;
-                case 2:
-                    DbAtualizacaoAdvogado.atualizarNome(advogado, novoValor, this.connection);
-                    break;
-                case 3:
-                    DbAtualizacaoAdvogado.atualizarEndereco(advogado, novoValor, this.connection);
-                    break;
-                default:
-                    System.out.println("DEBUG: opção inválida.");
-            }
+    public void atualizar(int op, String registroDoAdvogado, String novoValor) {
+        switch (op) {
+            case 0:
+                DbAtualizacaoAdvogado.atualizarRegistroDoAdvogado(registroDoAdvogado, novoValor, this.connection);
+                break;
+            case 1:
+                DbAtualizacaoAdvogado.atualizarNome(registroDoAdvogado, novoValor, this.connection);
+                break;
+            case 2:
+                DbAtualizacaoAdvogado.atualizarEndereco(registroDoAdvogado, novoValor, this.connection);
+                break;
+            default:
+                System.out.println("DEBUG: opção inválida.");
         }
     }
 }
